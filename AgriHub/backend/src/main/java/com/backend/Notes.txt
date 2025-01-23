@@ -1,1 +1,49 @@
 1. Convert SQL INTs into BIGINTs for Long datatypes in entities
+
+backend/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── com/
+│   │   │   │   ├── backend/
+│   │   │   │   │   ├── AgriLearn/  # Agri-Learn Service
+│   │   │   │   │   │   ├── configs/
+│   │   │   │   │   │   ├── controllers/
+│   │   │   │   │   │   ├── dtos/
+│   │   │   │   │   │   ├── entities/
+│   │   │   │   │   │   ├── enums/
+│   │   │   │   │   │   ├── exceptions/
+│   │   │   │   │   │   ├── mappers/
+│   │   │   │   │   │   ├── repositories/
+│   │   │   │   │   │   ├── services/
+│   │   │   │   │   │   ├── utils/
+│   │   │   │   │   │   └── validators/
+│   │   │   │   │   ├── Security/  # Central Security Configurations
+│   │   │   │   │   │   ├── configs/
+│   │   │   │   │   │   ├── controllers/
+│   │   │   │   │   │   ├── services/
+│   │   │   │   │   │   └── utils/
+│   │   │   │   │   ├── Dashboard/
+│   │   │   │   │   ├── Emailing/
+│   │   │   │   │   ├── Listings/
+│   │   │   │   │   ├── MyFarm/
+│   │   │   │   │   ├── FundingApplications/
+│   │   │   │   │   └── FinanceManagement/
+│   │   │   ├── resources/
+│   │   │   │   ├── application.properties
+│   │   │   │   ├── db/
+│   │   │   │   │   ├── schema.sql
+│   │   │   │   │   └── data.sql
+│   │   │   │   ├── static/
+│   │   │   │   └── templates/
+│   │   ├── test/
+│   │   │   └── java/
+│   │   │       └── com/
+│   │   │           └── backend/
+│   │   │               └── AgriLearn/
+│   ├── target/
+│   ├── .mvn/
+│   ├── mvnw
+│   ├── mvnw.cmd
+│   └── pom.xml
+└── README.md
