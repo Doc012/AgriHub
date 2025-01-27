@@ -11,16 +11,20 @@ public class SavedSubCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long savedSubCategoryID;
+    @Column(name = "SavedSubCategoryID")
+    private int savedSubCategoryID;
 
     @ManyToOne
-    @JoinColumn(name = "userID", nullable = false)
+    @JoinColumn(name = "UserID", nullable = false)
     private User user;
 
-    @Column(nullable = false)
-    private Long subCategoryID;
+    @Column(nullable = false, name = "SubCategoryID")
+    private int subCategoryID;
 
+    @Column(name = "Pic_url")
     private String picUrl;
+
+    @Column(name = "SavedAt")
     private LocalDateTime savedAt;
 
     @PrePersist
@@ -31,11 +35,11 @@ public class SavedSubCategory {
     public SavedSubCategory() {
     }
 
-    public Long getSavedSubCategoryID() {
+    public int getSavedSubCategoryID() {
         return savedSubCategoryID;
     }
 
-    public void setSavedSubCategoryID(Long savedSubCategoryID) {
+    public void setSavedSubCategoryID(int savedSubCategoryID) {
         this.savedSubCategoryID = savedSubCategoryID;
     }
 
@@ -47,11 +51,11 @@ public class SavedSubCategory {
         this.user = user;
     }
 
-    public Long getSubCategoryID() {
+    public int getSubCategoryID() {
         return subCategoryID;
     }
 
-    public void setSubCategoryID(Long subCategoryID) {
+    public void setSubCategoryID(int subCategoryID) {
         this.subCategoryID = subCategoryID;
     }
 

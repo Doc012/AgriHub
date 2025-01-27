@@ -8,25 +8,29 @@ public class CropCategoryObjectiveContent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cropCategoryObjectiveContentID;
+    @Column(name = "CropCategoryObjectiveContentID")
+    private int cropCategoryObjectiveContentID;
 
     @ManyToOne
-    @JoinColumn(name = "cropCategoryObjectiveID", nullable = false)
+    @JoinColumn(name = "CropCategoryObjectiveID", nullable = false)
     private CropCategoryObjective cropCategoryObjective;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "Title")
     private String title;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(columnDefinition = "TEXT", nullable = false, name = "Content")
     private String content;
 
+    @Column(name = "Pic_url")
     private String picUrl;
+
+    @Column(name = "Vid_url")
     private String vidUrl;
 
     public CropCategoryObjectiveContent() {
     }
 
-    public CropCategoryObjectiveContent(Long cropCategoryObjectiveContentID, CropCategoryObjective cropCategoryObjective, String title, String content, String picUrl, String vidUrl) {
+    public CropCategoryObjectiveContent(int cropCategoryObjectiveContentID, CropCategoryObjective cropCategoryObjective, String title, String content, String picUrl, String vidUrl) {
         this.cropCategoryObjectiveContentID = cropCategoryObjectiveContentID;
         this.cropCategoryObjective = cropCategoryObjective;
         this.title = title;
@@ -35,11 +39,11 @@ public class CropCategoryObjectiveContent {
         this.vidUrl = vidUrl;
     }
 
-    public Long getCropCategoryObjectiveContentID() {
+    public int getCropCategoryObjectiveContentID() {
         return cropCategoryObjectiveContentID;
     }
 
-    public void setCropCategoryObjectiveContentID(Long cropCategoryObjectiveContentID) {
+    public void setCropCategoryObjectiveContentID(int cropCategoryObjectiveContentID) {
         this.cropCategoryObjectiveContentID = cropCategoryObjectiveContentID;
     }
 

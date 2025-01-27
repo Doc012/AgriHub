@@ -9,23 +9,29 @@ public class CropCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cropCategoryID;
+    @Column(name = "CropCategoryID")
+    private int cropCategoryID;
 
     @ManyToOne
     @JoinColumn(name = "locationID", nullable = false)
     private Location location;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "Title")
     private String title;
 
+    @Column(name = "Description")
     private String description;
+
+    @Column(name = "Pic_url")
     private String picUrl;
+
+    @Column(name = "HasSubCategories", columnDefinition = "TINYINT(1) DEFAULT 0")
     private Boolean hasSubCategories;
 
     public CropCategory() {
     }
 
-    public CropCategory(Long cropCategoryID, Location location, String title, String description, String picUrl, Boolean hasSubCategories) {
+    public CropCategory(int cropCategoryID, Location location, String title, String description, String picUrl, Boolean hasSubCategories) {
         this.cropCategoryID = cropCategoryID;
         this.location = location;
         this.title = title;
@@ -34,11 +40,11 @@ public class CropCategory {
         this.hasSubCategories = hasSubCategories;
     }
 
-    public Long getCropCategoryID() {
+    public int getCropCategoryID() {
         return cropCategoryID;
     }
 
-    public void setCropCategoryID(Long cropCategoryID) {
+    public void setCropCategoryID(int cropCategoryID) {
         this.cropCategoryID = cropCategoryID;
     }
 

@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LivestockCategoryObjectiveContentRepository extends JpaRepository<LivestockCategoryObjectiveContent, Long> {
+public interface LivestockCategoryObjectiveContentRepository extends JpaRepository<LivestockCategoryObjectiveContent, Integer> {
 }

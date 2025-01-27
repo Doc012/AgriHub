@@ -68,7 +68,7 @@ CREATE TABLE CropCategoryObjectiveContents (
     Content TEXT,
     Pic_url VARCHAR(255),
     Vid_url VARCHAR(255),
-    FOREIGN KEY (CropCategoryObjectiveID) REFERENCES CropCategoryObjectives(CropCategoryID)
+    FOREIGN KEY (CropCategoryObjectiveID) REFERENCES CropCategoryObjectives(CropCategoryObjectiveID)
 );
 
 CREATE TABLE CropSubCategoryObjectiveContents (
@@ -93,11 +93,11 @@ CREATE TABLE LivestockCategories (
 
 CREATE TABLE LivestockSubCategories (
     LivestockSubCategoryID INT AUTO_INCREMENT PRIMARY KEY,
-    LivestiockCategoryID INT NOT NULL,
+    LivestockCategoryID INT NOT NULL,
     Title VARCHAR(100) NOT NULL,
     Description TEXT,
     Pic_url VARCHAR(255),
-    FOREIGN KEY (LivestiockCategoryID) REFERENCES LivestockCategories(LivestockCategoryID)
+    FOREIGN KEY (LivestockCategoryID) REFERENCES LivestockCategories(LivestockCategoryID)
 );
 
 CREATE TABLE LivestockCategoryObjectives (
@@ -148,9 +148,9 @@ CREATE TABLE SavedCategories (
 );
 
 CREATE TABLE SavedSubCategories (
-    SavedCategoryID INT AUTO_INCREMENT PRIMARY KEY,
+    SavedSubCategoryID INT AUTO_INCREMENT PRIMARY KEY,
     UserID INT NOT NULL,
-    SubCategorID INT NOT NULL,
+    SubCategoryID INT NOT NULL,
     SavedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     Pic_url VARCHAR(255),
     FOREIGN KEY (UserID) REFERENCES Users(UserID)

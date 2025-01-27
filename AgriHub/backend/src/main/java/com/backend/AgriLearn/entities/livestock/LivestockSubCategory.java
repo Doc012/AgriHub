@@ -8,22 +8,26 @@ public class LivestockSubCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long livestockSubCategoryID;
+    @Column(name = "LivestockSubCategoryID")
+    private int livestockSubCategoryID;
 
     @ManyToOne
-    @JoinColumn(name = "livestockCategoryID", nullable = false)
+    @JoinColumn(name = "LivestockCategoryID", nullable = false)
     private LivestockCategory livestockCategory;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "Title")
     private String title;
 
+    @Column(name = "Description")
     private String description;
+
+    @Column(name = "Pic_url")
     private String picUrl;
 
     public LivestockSubCategory() {
     }
 
-    public LivestockSubCategory(Long livestockSubCategoryID, LivestockCategory livestockCategory, String title, String description, String picUrl) {
+    public LivestockSubCategory(int livestockSubCategoryID, LivestockCategory livestockCategory, String title, String description, String picUrl) {
         this.livestockSubCategoryID = livestockSubCategoryID;
         this.livestockCategory = livestockCategory;
         this.title = title;
@@ -31,11 +35,11 @@ public class LivestockSubCategory {
         this.picUrl = picUrl;
     }
 
-    public Long getLivestockSubCategoryID() {
+    public int getLivestockSubCategoryID() {
         return livestockSubCategoryID;
     }
 
-    public void setLivestockSubCategoryID(Long livestockSubCategoryID) {
+    public void setLivestockSubCategoryID(int livestockSubCategoryID) {
         this.livestockSubCategoryID = livestockSubCategoryID;
     }
 

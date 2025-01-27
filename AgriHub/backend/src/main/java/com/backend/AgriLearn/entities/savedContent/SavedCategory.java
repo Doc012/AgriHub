@@ -11,16 +11,20 @@ public class SavedCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long savedCategoryID;
+    @Column(name = "SavedCategoryID")
+    private int savedCategoryID;
 
     @ManyToOne
-    @JoinColumn(name = "userID", nullable = false)
+    @JoinColumn(name = "UserID", nullable = false)
     private User user;
 
-    @Column(nullable = false)
-    private Long categoryID;
+    @Column(nullable = false, name = "CategoryID")
+    private int categoryID;
 
+    @Column(name = "Pic_url")
     private String picUrl;
+
+    @Column(name = "SavedAt")
     private LocalDateTime savedAt;
 
     @PrePersist
@@ -31,7 +35,7 @@ public class SavedCategory {
     public SavedCategory() {
     }
 
-    public SavedCategory(Long savedCategoryID, User user, Long categoryID, String picUrl, LocalDateTime savedAt) {
+    public SavedCategory(int savedCategoryID, User user, int categoryID, String picUrl, LocalDateTime savedAt) {
         this.savedCategoryID = savedCategoryID;
         this.user = user;
         this.categoryID = categoryID;
@@ -39,11 +43,11 @@ public class SavedCategory {
         this.savedAt = savedAt;
     }
 
-    public Long getSavedCategoryID() {
+    public int getSavedCategoryID() {
         return savedCategoryID;
     }
 
-    public void setSavedCategoryID(Long savedCategoryID) {
+    public void setSavedCategoryID(int savedCategoryID) {
         this.savedCategoryID = savedCategoryID;
     }
 
@@ -55,11 +59,11 @@ public class SavedCategory {
         this.user = user;
     }
 
-    public Long getCategoryID() {
+    public int getCategoryID() {
         return categoryID;
     }
 
-    public void setCategoryID(Long categoryID) {
+    public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
     }
 

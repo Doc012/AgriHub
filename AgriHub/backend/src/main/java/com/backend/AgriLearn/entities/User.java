@@ -11,29 +11,32 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userID;
+    @Column(name = "UserID")
+    private int userID;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "Name")
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "Surname")
     private String surname;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "PhoneNumber")
     private String phoneNumber;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, name = "Email")
     private String email;
 
-    @Column(nullable = true)
+    @Column(name = "Pic_url")
     private String picUrl;
 
     @ManyToOne
-    @JoinColumn(name = "roleID", nullable = false)
+    @JoinColumn(name = "RoleID", nullable = false)
     private Role role;
 
+    @Column(name = "CreatedAt")
     private LocalDateTime createdAt;
 
+    @Column(name = "UpdatedAt")
     private LocalDateTime updatedAt;
 
     @PrePersist
@@ -49,7 +52,7 @@ public class User {
     public User() {
     }
 
-    public User(Long userID, String name, String surname, String phoneNumber, String email, String picUrl, Role role, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public User(int userID, String name, String surname, String phoneNumber, String email, String picUrl, Role role, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.userID = userID;
         this.name = name;
         this.surname = surname;
@@ -61,11 +64,11 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
-    public Long getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public void setUserID(Long userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 

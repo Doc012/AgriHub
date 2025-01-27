@@ -9,22 +9,26 @@ public class LivestockSubCategoryObjective {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long livestockSubCategoryObjectiveID;
+    @Column(name = "LivestockSubCategoryObjectiveID")
+    private int livestockSubCategoryObjectiveID;
 
     @ManyToOne
-    @JoinColumn(name = "livestockSubCategoryID", nullable = false)
+    @JoinColumn(name = "LivestockSubCategoryID", nullable = false)
     private LivestockSubCategory livestockSubCategory;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "Title")
     private String title;
 
+    @Column(name = "Description")
     private String description;
+
+    @Column(name = "Pic_url")
     private String picUrl;
 
     public LivestockSubCategoryObjective() {
     }
 
-    public LivestockSubCategoryObjective(Long livestockSubCategoryObjectiveID, LivestockSubCategory livestockSubCategory, String title, String description, String picUrl) {
+    public LivestockSubCategoryObjective(int livestockSubCategoryObjectiveID, LivestockSubCategory livestockSubCategory, String title, String description, String picUrl) {
         this.livestockSubCategoryObjectiveID = livestockSubCategoryObjectiveID;
         this.livestockSubCategory = livestockSubCategory;
         this.title = title;
@@ -32,11 +36,11 @@ public class LivestockSubCategoryObjective {
         this.picUrl = picUrl;
     }
 
-    public Long getLivestockSubCategoryObjectiveID() {
+    public int getLivestockSubCategoryObjectiveID() {
         return livestockSubCategoryObjectiveID;
     }
 
-    public void setLivestockSubCategoryObjectiveID(Long livestockSubCategoryObjectiveID) {
+    public void setLivestockSubCategoryObjectiveID(int livestockSubCategoryObjectiveID) {
         this.livestockSubCategoryObjectiveID = livestockSubCategoryObjectiveID;
     }
 

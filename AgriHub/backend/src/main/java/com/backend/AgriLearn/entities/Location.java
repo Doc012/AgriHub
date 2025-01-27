@@ -8,31 +8,33 @@ public class Location {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long locationID;
+    @Column(name = "LocationID")
+    private int locationID;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "Province")
     private String province;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "District")
     private String district;
 
+    @Column(name = "Pic_url")
     private String picUrl;
 
     public Location() {
     }
 
-    public Location(Long locationID, String province, String district, String picUrl) {
+    public Location(int locationID, String province, String district, String picUrl) {
         this.locationID = locationID;
         this.province = province;
         this.district = district;
         this.picUrl = picUrl;
     }
 
-    public Long getLocationID() {
+    public int getLocationID() {
         return locationID;
     }
 
-    public void setLocationID(Long locationID) {
+    public void setLocationID(int locationID) {
         this.locationID = locationID;
     }
 

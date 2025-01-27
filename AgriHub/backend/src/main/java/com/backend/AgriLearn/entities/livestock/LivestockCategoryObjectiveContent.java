@@ -3,41 +3,47 @@ package com.backend.AgriLearn.entities.livestock;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "livestockcategoryobjectives")
+@Table(name = "livestockcategoryobjectivecontents")
 public class LivestockCategoryObjectiveContent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long livestockCategoryObjectiveContentID;
+    @Column(name = "LivestockCategoryObjectiveContentID")
+    private int livestockCategoryObjectiveContentID;
 
     @ManyToOne
-    @JoinColumn(name = "livestockCategoryObjectiveID", nullable = false)
+    @JoinColumn(name = "LivestockCategoryObjectiveID", nullable = false)
     private LivestockCategoryObjective livestockCategoryObjective;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "Title")
     private String title;
 
-    private String description;
+    @Column(name = "Content")
+    private String content;
+
+    @Column(name = "Pic_url")
     private String picUrl;
+
+    @Column(name = "Vid_url")
     private String vidUrl;
 
     public LivestockCategoryObjectiveContent() {
     }
 
-    public LivestockCategoryObjectiveContent(Long livestockCategoryObjectiveContentID, LivestockCategoryObjective livestockCategoryObjective, String title, String description, String picUrl, String vidUrl) {
+    public LivestockCategoryObjectiveContent(int livestockCategoryObjectiveContentID, LivestockCategoryObjective livestockCategoryObjective, String title, String content, String picUrl, String vidUrl) {
         this.livestockCategoryObjectiveContentID = livestockCategoryObjectiveContentID;
         this.livestockCategoryObjective = livestockCategoryObjective;
         this.title = title;
-        this.description = description;
+        this.content = content;
         this.picUrl = picUrl;
         this.vidUrl = vidUrl;
     }
 
-    public Long getLivestockCategoryObjectiveContentID() {
+    public int getLivestockCategoryObjectiveContentID() {
         return livestockCategoryObjectiveContentID;
     }
 
-    public void setLivestockCategoryObjectiveContentID(Long livestockCategoryObjectiveContentID) {
+    public void setLivestockCategoryObjectiveContentID(int livestockCategoryObjectiveContentID) {
         this.livestockCategoryObjectiveContentID = livestockCategoryObjectiveContentID;
     }
 
@@ -57,12 +63,12 @@ public class LivestockCategoryObjectiveContent {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getContent() {
+        return content;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getPicUrl() {
