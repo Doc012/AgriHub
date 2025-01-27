@@ -1,6 +1,7 @@
 package com.backend.AgriLearn.entities;
 
 
+import com.backend.AgriLearn.enums.RoleType;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -31,9 +32,9 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "RoleID", nullable = false)
-    private Role role;
+    private Role roleType;
 
-    @Column(name = "CreatedAt")
+    @Column(name = "CreatedAt", updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "UpdatedAt")
@@ -41,25 +42,26 @@ public class User {
 
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
     public User() {
     }
 
-    public User(int userID, String name, String surname, String phoneNumber, String email, String picUrl, Role role, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public User(int userID, String name, String surname, String phoneNumber, String email, String picUrl, Role roleType, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.userID = userID;
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.picUrl = picUrl;
-        this.role = role;
+        this.roleType = roleType;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -112,12 +114,12 @@ public class User {
         this.picUrl = picUrl;
     }
 
-    public Role getRole() {
-        return role;
+    public Role getRoleType() {
+        return roleType;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoleType(Role roleType) {
+        this.roleType = roleType;
     }
 
     public LocalDateTime getCreatedAt() {

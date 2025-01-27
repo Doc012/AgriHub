@@ -1,6 +1,9 @@
 package com.backend.AgriLearn.entities;
 
+import com.backend.AgriLearn.enums.RoleType;
 import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "roles")
@@ -11,19 +14,39 @@ public class Role {
     @Column(name = "RoleID")
     private int roleID;
 
-    @Column(nullable = false, unique = true, name = "RoleName")
-    private String roleName;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, unique = true)
+    private RoleType roleType;
 
     @Column(length = 5000, name = "Description")
-    private String roleDescription;
+    private String description;
+
+    @Column(name = "CreatedAt", updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "UpdatedAt")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
 
     public Role() {
     }
 
-    public Role(int roleID, String roleName, String roleDescription) {
+    public Role(int roleID, RoleType roleType, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.roleID = roleID;
-        this.roleName = roleName;
-        this.roleDescription = roleDescription;
+        this.roleType = roleType;
+        this.description = description;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public int getRoleID() {
@@ -34,19 +57,35 @@ public class Role {
         this.roleID = roleID;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public RoleType getRoleType() {
+        return roleType;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setRoleType(RoleType roleType) {
+        this.roleType = roleType;
     }
 
-    public String getRoleDescription() {
-        return roleDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setRoleDescription(String roleDescription) {
-        this.roleDescription = roleDescription;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
