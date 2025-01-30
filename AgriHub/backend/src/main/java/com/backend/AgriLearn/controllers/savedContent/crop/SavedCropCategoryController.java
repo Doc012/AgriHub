@@ -1,10 +1,8 @@
-package com.backend.AgriLearn.controllers.savedContent;
+package com.backend.AgriLearn.controllers.savedContent.crop;
 
-import com.backend.AgriLearn.dtos.saveContent.SavedCropCategoryDTO;
-import com.backend.AgriLearn.entities.savedContent.SavedCropCategory;
-import com.backend.AgriLearn.repositories.savedContent.SavedCropCategoryRepository;
-import com.backend.AgriLearn.services.savedContent.SavedCropCategoryService;
-import org.apache.coyote.Response;
+import com.backend.AgriLearn.dtos.saveContent.crop.SavedCropCategoryDTO;
+import com.backend.AgriLearn.entities.savedContent.crop.SavedCropCategory;
+import com.backend.AgriLearn.services.savedContent.crop.SavedCropCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

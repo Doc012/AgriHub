@@ -1,4 +1,4 @@
-package com.backend.AgriLearn.dtos.saveContent;
+package com.backend.AgriLearn.dtos.saveContent.crop;
 
 public class SavedCropSubCategoryDTO {
 

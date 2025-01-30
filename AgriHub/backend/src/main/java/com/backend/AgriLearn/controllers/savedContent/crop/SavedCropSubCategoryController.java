@@ -1,9 +1,9 @@
-package com.backend.AgriLearn.controllers.savedContent;
+package com.backend.AgriLearn.controllers.savedContent.crop;
 
 
-import com.backend.AgriLearn.dtos.saveContent.SavedCropSubCategoryDTO;
-import com.backend.AgriLearn.entities.savedContent.SavedCropSubCategory;
-import com.backend.AgriLearn.services.savedContent.SavedCropSubCategoryService;
+import com.backend.AgriLearn.dtos.saveContent.crop.SavedCropSubCategoryDTO;
+import com.backend.AgriLearn.entities.savedContent.crop.SavedCropSubCategory;
+import com.backend.AgriLearn.services.savedContent.crop.SavedCropSubCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -160,6 +160,26 @@ CREATE TABLE SavedCropSubCategories (
     FOREIGN KEY (CropSubCategoryID) REFERENCES CropSubCategories(CropSubCategoryID) ON DELETE CASCADE
 );
 
+
+CREATE TABLE SavedLivestockCategories (
+    SavedCategoryID INT AUTO_INCREMENT PRIMARY KEY,
+    UserID INT NOT NULL,
+    LivestockCategoryID INT NOT NULL,
+    SavedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Pic_url VARCHAR(255),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE,
+    FOREIGN KEY (LivestockCategoryID) REFERENCES LivestockCategories(LivestockCategoryID) ON DELETE CASCADE
+);
+
+CREATE TABLE SavedLivestockSubCategories (
+    SavedCategoryID INT AUTO_INCREMENT PRIMARY KEY,
+    UserID INT NOT NULL,
+    LivestockSubCategoryID INT NOT NULL,
+    SavedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Pic_url VARCHAR(255),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE,
+    FOREIGN KEY (LivestockSubCategoryID) REFERENCES LivestockSubCategories(LivestockSubCategoryID) ON DELETE CASCADE
+);
 --CREATE TABLE SavedCategories (
 --    SavedCategoryID INT AUTO_INCREMENT PRIMARY KEY,
 --    UserID INT NOT NULL,

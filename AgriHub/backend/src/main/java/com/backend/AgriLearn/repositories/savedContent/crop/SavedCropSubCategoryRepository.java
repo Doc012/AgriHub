@@ -1,10 +1,9 @@
-package com.backend.AgriLearn.repositories.savedContent;
+package com.backend.AgriLearn.repositories.savedContent.crop;
 
-import com.backend.AgriLearn.entities.savedContent.SavedCropSubCategory;
+import com.backend.AgriLearn.entities.savedContent.crop.SavedCropSubCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository

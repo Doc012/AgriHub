@@ -1,4 +1,4 @@
-package com.backend.AgriLearn.entities.savedContent;
+package com.backend.AgriLearn.entities.savedContent.crop;
 
 import com.backend.AgriLearn.entities.User;
 import com.backend.AgriLearn.entities.crop.CropCategory;

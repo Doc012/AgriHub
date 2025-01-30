@@ -1,12 +1,12 @@
-package com.backend.AgriLearn.services.savedContent;
+package com.backend.AgriLearn.services.savedContent.crop;
 
-import com.backend.AgriLearn.dtos.saveContent.SavedCropCategoryDTO;
+import com.backend.AgriLearn.dtos.saveContent.crop.SavedCropCategoryDTO;
 import com.backend.AgriLearn.entities.User;
 import com.backend.AgriLearn.entities.crop.CropCategory;
-import com.backend.AgriLearn.entities.savedContent.SavedCropCategory;
+import com.backend.AgriLearn.entities.savedContent.crop.SavedCropCategory;
 import com.backend.AgriLearn.repositories.UserRepository;
 import com.backend.AgriLearn.repositories.crop.CropCategoryRepository;
-import com.backend.AgriLearn.repositories.savedContent.SavedCropCategoryRepository;
+import com.backend.AgriLearn.repositories.savedContent.crop.SavedCropCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,11 +31,11 @@ public class SavedCropCategoryService {
         Optional<CropCategory> cropCategory = cropCategoryRepository.findById(dto.getCropCategoryID());
 
         if (user.isEmpty() && cropCategory.isEmpty()) { // I removed '||' operator
-            throw new IllegalArgumentException("User or crop Category not found");
+            throw new IllegalArgumentException("User or crop Category not found.");
         }
 
         if (savedCropCategoryRepository.existsByUser_UserIDAndCropCategory_CropCategoryID(dto.getUserID(), dto.getCropCategoryID())) {
-            throw new IllegalArgumentException("This category is already saved by.");
+            throw new IllegalArgumentException("This category is already saved.");
         }
 
         SavedCropCategory savedCropCategory = new SavedCropCategory(
