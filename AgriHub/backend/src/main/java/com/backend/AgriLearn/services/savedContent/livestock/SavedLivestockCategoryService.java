@@ -1,12 +1,12 @@
 package com.backend.AgriLearn.services.savedContent.livestock;
 
 import com.backend.AgriLearn.dtos.saveContent.livestock.SavedLivestockCategoryDTO;
-import com.backend.AgriLearn.entities.User;
 import com.backend.AgriLearn.entities.livestock.LivestockCategory;
 import com.backend.AgriLearn.entities.savedContent.livestock.SavedLivestockCategory;
-import com.backend.AgriLearn.repositories.UserRepository;
 import com.backend.AgriLearn.repositories.livestock.LivestockCategoryRepository;
 import com.backend.AgriLearn.repositories.savedContent.livestock.SavedLivestockCategoryRepository;
+import com.backend.User.entities.User;
+import com.backend.User.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

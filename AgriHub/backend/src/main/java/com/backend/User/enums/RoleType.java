@@ -1,4 +1,4 @@
-package com.backend.AgriLearn.enums;
+package com.backend.User.enums;
 
 public enum RoleType {
     ADMIN,

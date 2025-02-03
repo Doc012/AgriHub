@@ -1,14 +1,14 @@
-package com.backend.AgriLearn.services;
+package com.backend.User.services;
 
-import com.backend.AgriLearn.dtos.UserDTO;
-import com.backend.AgriLearn.entities.Role;
-import com.backend.AgriLearn.entities.User;
-import com.backend.AgriLearn.repositories.RoleRepository;
-import com.backend.AgriLearn.repositories.UserRepository;
+import com.backend.User.dtos.UserDTO;
+import com.backend.User.entities.Role;
+import com.backend.User.entities.User;
+import com.backend.User.repositories.RoleRepository;
+import com.backend.User.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service

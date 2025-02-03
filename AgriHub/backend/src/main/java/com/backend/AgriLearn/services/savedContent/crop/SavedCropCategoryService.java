@@ -1,12 +1,12 @@
 package com.backend.AgriLearn.services.savedContent.crop;
 
 import com.backend.AgriLearn.dtos.saveContent.crop.SavedCropCategoryDTO;
-import com.backend.AgriLearn.entities.User;
 import com.backend.AgriLearn.entities.crop.CropCategory;
 import com.backend.AgriLearn.entities.savedContent.crop.SavedCropCategory;
-import com.backend.AgriLearn.repositories.UserRepository;
 import com.backend.AgriLearn.repositories.crop.CropCategoryRepository;
 import com.backend.AgriLearn.repositories.savedContent.crop.SavedCropCategoryRepository;
+import com.backend.User.entities.User;
+import com.backend.User.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

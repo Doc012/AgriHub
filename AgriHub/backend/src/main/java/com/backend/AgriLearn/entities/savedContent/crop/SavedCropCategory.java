@@ -1,7 +1,7 @@
 package com.backend.AgriLearn.entities.savedContent.crop;
 
-import com.backend.AgriLearn.entities.User;
 import com.backend.AgriLearn.entities.crop.CropCategory;
+import com.backend.User.entities.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;

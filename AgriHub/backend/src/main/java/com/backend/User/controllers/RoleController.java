@@ -1,14 +1,13 @@
-package com.backend.AgriLearn.controllers;
+package com.backend.User.controllers;
 
-import com.backend.AgriLearn.dtos.RoleDTO;
-import com.backend.AgriLearn.entities.Role;
-import com.backend.AgriLearn.enums.RoleType;
-import com.backend.AgriLearn.services.RoleService;
+import com.backend.User.dtos.RoleDTO;
+import com.backend.User.entities.Role;
+import com.backend.User.enums.RoleType;
+import com.backend.User.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,6 +1,6 @@
-package com.backend.AgriLearn.dtos;
+package com.backend.User.dtos;
 
-import com.backend.AgriLearn.enums.RoleType;
+import com.backend.User.enums.RoleType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;

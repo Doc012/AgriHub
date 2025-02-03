@@ -1,8 +1,8 @@
-package com.backend.AgriLearn.controllers;
+package com.backend.User.controllers;
 
-import com.backend.AgriLearn.dtos.UserDTO;
-import com.backend.AgriLearn.entities.User;
-import com.backend.AgriLearn.services.UserService;
+import com.backend.User.dtos.UserDTO;
+import com.backend.User.entities.User;
+import com.backend.User.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

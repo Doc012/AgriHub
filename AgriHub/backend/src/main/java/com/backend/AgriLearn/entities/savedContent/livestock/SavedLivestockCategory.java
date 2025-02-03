@@ -1,7 +1,7 @@
 package com.backend.AgriLearn.entities.savedContent.livestock;
 
-import com.backend.AgriLearn.entities.User;
 import com.backend.AgriLearn.entities.livestock.LivestockCategory;
+import com.backend.User.entities.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
