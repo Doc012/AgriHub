@@ -1,0 +1,6 @@
+___//INSTALL PACKAGES\\___
+
+1. Install Tailwind CSS with Vite
+2. Install react-router-dom lucide-react recharts
+3. Install framer-motion
+4. npm install recharts
