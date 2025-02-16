@@ -1,6 +1,6 @@
 package com.backend.AgriLearn.entities.crop;
 
-
+import com.backend.AgriLearn.entities.livestock.LivestockGroup;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,11 +16,21 @@ public class CropSubCategory {
     @JoinColumn(name = "CropCategoryID", nullable = false)
     private CropCategory cropCategory;
 
+    @ManyToOne
+    @JoinColumn(name = "CropGroupID")
+    private CropGroup cropGroup;
+
     @Column(nullable = false, name = "Title")
     private String title;
 
-    @Column(name = "Description")
-    private String description;
+    @Column(nullable = false, name = "Purpose", columnDefinition = "TEXT")
+    private String purpose;
+
+    @Column(nullable = false, name = "CommonVarieties", columnDefinition = "TEXT")
+    private String commonVarieties;
+
+    @Column(nullable = false, name = "Market", columnDefinition = "TEXT")
+    private String market;
 
     @Column(name = "Pic_url")
     private String picUrl;
@@ -28,11 +38,14 @@ public class CropSubCategory {
     public CropSubCategory() {
     }
 
-    public CropSubCategory(int cropSubCategoryID, CropCategory cropCategory, String title, String description, String picUrl) {
+    public CropSubCategory(int cropSubCategoryID, CropCategory cropCategory, CropGroup cropGroup, String title, String purpose, String commonVarieties, String market, String picUrl) {
         this.cropSubCategoryID = cropSubCategoryID;
         this.cropCategory = cropCategory;
+        this.cropGroup = cropGroup;
         this.title = title;
-        this.description = description;
+        this.purpose = purpose;
+        this.commonVarieties = commonVarieties;
+        this.market = market;
         this.picUrl = picUrl;
     }
 
@@ -52,6 +65,14 @@ public class CropSubCategory {
         this.cropCategory = cropCategory;
     }
 
+    public CropGroup getCropGroup() {
+        return cropGroup;
+    }
+
+    public void setCropGroup(CropGroup cropGroup) {
+        this.cropGroup = cropGroup;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -60,12 +81,28 @@ public class CropSubCategory {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPurpose() {
+        return purpose;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
+    public String getCommonVarieties() {
+        return commonVarieties;
+    }
+
+    public void setCommonVarieties(String commonVarieties) {
+        this.commonVarieties = commonVarieties;
+    }
+
+    public String getMarket() {
+        return market;
+    }
+
+    public void setMarket(String market) {
+        this.market = market;
     }
 
     public String getPicUrl() {

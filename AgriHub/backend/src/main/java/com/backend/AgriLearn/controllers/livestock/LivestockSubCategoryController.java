@@ -37,6 +37,13 @@ public class LivestockSubCategoryController {
         return ResponseEntity.ok(livestockSubCategories);
     }
 
+    // **New: Get livestock sub-categories by livestock group ID**
+    @GetMapping("/group/{livestockGroupID}")
+    public ResponseEntity<List<LivestockSubCategory>> getLivestockSubCategoriesByLivestockGroup(@PathVariable("livestockGroupID") int livestockGroupID) {
+        List<LivestockSubCategory> livestockSubCategories = livestockSubCategoryService.getLivestockSubCategoriesByLivestockGroup(livestockGroupID);
+        return ResponseEntity.ok(livestockSubCategories);
+    }
+
     // Get a livestock sub-category by ID
     @GetMapping("/{id}")
     public ResponseEntity<LivestockSubCategory> getLivestockSubCategoryByID(@PathVariable("id") int id) {

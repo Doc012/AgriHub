@@ -36,13 +36,26 @@ CREATE TABLE CropCategories (
     FOREIGN KEY (LocationID) REFERENCES Locations(LocationID)
 );
 
-CREATE TABLE CropSubCategories (
-    CropSubCategoryID INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE CropGroups (
+    CropGroupID INT AUTO_INCREMENT PRIMARY KEY,
     CropCategoryID INT NOT NULL,
     Title VARCHAR(100) NOT NULL,
     Description TEXT,
     Pic_url VARCHAR(255),
     FOREIGN KEY (CropCategoryID) REFERENCES CropCategories(CropCategoryID)
+);
+
+CREATE TABLE CropSubCategories (
+    CropSubCategoryID INT AUTO_INCREMENT PRIMARY KEY,
+    CropCategoryID INT NOT NULL,
+    CropGroupID INT,
+    Title VARCHAR(100) NOT NULL,
+    Purpose TEXT NOT NULL,
+    CommonVarieties TEXT NOT NULL,
+    Market TEXT NOT NULL,
+    Pic_url VARCHAR(255),
+    FOREIGN KEY (CropCategoryID) REFERENCES CropCategories(CropCategoryID),
+    FOREIGN KEY (CropGroupID) REFERENCES CropGroups(CropGroupID)
 );
 
 CREATE TABLE CropCategoryObjectives (
@@ -93,13 +106,26 @@ CREATE TABLE LivestockCategories (
     FOREIGN KEY (LocationID) REFERENCES Locations(LocationID)
 );
 
-CREATE TABLE LivestockSubCategories (
-    LivestockSubCategoryID INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE LivestockGroups (
+    LivestockGroupID INT AUTO_INCREMENT PRIMARY KEY,
     LivestockCategoryID INT NOT NULL,
-    Title VARCHAR(100) NOT NULL,
+    Title VARCHAR(100) NOT NULL,  -- e.g., "Beef Cattle"
     Description TEXT,
     Pic_url VARCHAR(255),
     FOREIGN KEY (LivestockCategoryID) REFERENCES LivestockCategories(LivestockCategoryID)
+);
+
+CREATE TABLE LivestockSubCategories (
+    LivestockSubCategoryID INT AUTO_INCREMENT PRIMARY KEY,
+    LivestockCategoryID INT NOT NULL,
+    LivestockGroupID INT,
+    Title VARCHAR(100) NOT NULL,
+    Purpose TEXT NOT NULL,
+    CommonVarieties TEXT NOT NULL,
+    Market TEXT NOT NULL,
+    Pic_url VARCHAR(255),
+    FOREIGN KEY (LivestockCategoryID) REFERENCES LivestockCategories(LivestockCategoryID),
+    FOREIGN KEY (LivestockGroupID) REFERENCES LivestockGroups(LivestockGroupID)
 );
 
 CREATE TABLE LivestockCategoryObjectives (
@@ -180,20 +206,3 @@ CREATE TABLE SavedLivestockSubCategories (
     FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE,
     FOREIGN KEY (LivestockSubCategoryID) REFERENCES LivestockSubCategories(LivestockSubCategoryID) ON DELETE CASCADE
 );
---CREATE TABLE SavedCategories (
---    SavedCategoryID INT AUTO_INCREMENT PRIMARY KEY,
---    UserID INT NOT NULL,
---    CategoryID INT NOT NULL,
---    SavedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
---    Pic_url VARCHAR(255),
---    FOREIGN KEY (UserID) REFERENCES Users(UserID)
---);
---
---CREATE TABLE SavedSubCategories (
---    SavedSubCategoryID INT AUTO_INCREMENT PRIMARY KEY,
---    UserID INT NOT NULL,
---    SubCategoryID INT NOT NULL,
---    SavedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
---    Pic_url VARCHAR(255),
---    FOREIGN KEY (UserID) REFERENCES Users(UserID)
---);

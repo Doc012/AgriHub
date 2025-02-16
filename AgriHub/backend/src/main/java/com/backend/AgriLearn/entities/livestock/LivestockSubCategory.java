@@ -15,23 +15,36 @@ public class LivestockSubCategory {
     @JoinColumn(name = "LivestockCategoryID", nullable = false)
     private LivestockCategory livestockCategory;
 
-    @Column(nullable = false, name = "Title")
+    @ManyToOne
+    @JoinColumn(name = "LivestockGroupID")
+    private LivestockGroup livestockGroup;
+
+    @Column(nullable = false, name = "Title", length = 100)
     private String title;
 
-    @Column(name = "Description")
-    private String description;
+    @Column(nullable = false, name = "Purpose", columnDefinition = "TEXT")
+    private String purpose;
 
-    @Column(name = "Pic_url")
+    @Column(nullable = false, name = "CommonVarieties", columnDefinition = "TEXT")
+    private String commonVarieties;
+
+    @Column(nullable = false, name = "Market", columnDefinition = "TEXT")
+    private String market;
+
+    @Column(name = "Pic_url", length = 255)
     private String picUrl;
 
     public LivestockSubCategory() {
     }
 
-    public LivestockSubCategory(int livestockSubCategoryID, LivestockCategory livestockCategory, String title, String description, String picUrl) {
+    public LivestockSubCategory(int livestockSubCategoryID, LivestockCategory livestockCategory, LivestockGroup livestockGroup, String title, String purpose, String commonVarieties, String market, String picUrl) {
         this.livestockSubCategoryID = livestockSubCategoryID;
         this.livestockCategory = livestockCategory;
+        this.livestockGroup = livestockGroup; // New field
         this.title = title;
-        this.description = description;
+        this.purpose = purpose;
+        this.commonVarieties = commonVarieties;
+        this.market = market;
         this.picUrl = picUrl;
     }
 
@@ -51,6 +64,14 @@ public class LivestockSubCategory {
         this.livestockCategory = livestockCategory;
     }
 
+    public LivestockGroup getLivestockGroup() {
+        return livestockGroup;
+    }
+
+    public void setLivestockGroup(LivestockGroup livestockGroup) {
+        this.livestockGroup = livestockGroup;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -59,12 +80,28 @@ public class LivestockSubCategory {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPurpose() {
+        return purpose;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
+    public String getCommonVarieties() {
+        return commonVarieties;
+    }
+
+    public void setCommonVarieties(String commonVarieties) {
+        this.commonVarieties = commonVarieties;
+    }
+
+    public String getMarket() {
+        return market;
+    }
+
+    public void setMarket(String market) {
+        this.market = market;
     }
 
     public String getPicUrl() {

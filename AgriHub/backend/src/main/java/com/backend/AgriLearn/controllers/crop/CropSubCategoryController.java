@@ -37,6 +37,13 @@ public class CropSubCategoryController {
         return ResponseEntity.ok(cropSubCategories);
     }
 
+    // **New: Get crop sub-categories by crop group ID**
+    @GetMapping("/group/{cropGroupID}")
+    public ResponseEntity<List<CropSubCategory>> getCropSubCategoriesByCropGroup(@PathVariable("cropGroupID") int cropGroupID) {
+        List<CropSubCategory> cropSubCategories = cropSubCategoryService.getCropSubCategoriesByCropGroup(cropGroupID);
+        return ResponseEntity.ok(cropSubCategories);
+    }
+
     // Get a crop sub-category by ID
     @GetMapping("/{id}")
     public ResponseEntity<CropSubCategory> getCropSubCategoryByID(@PathVariable("id") int id) {

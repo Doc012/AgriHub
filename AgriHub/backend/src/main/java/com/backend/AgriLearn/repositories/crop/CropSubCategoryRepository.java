@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface CropSubCategoryRepository extends JpaRepository<CropSubCategory, Integer> {
     List<CropSubCategory> findByCropCategory_CropCategoryID(Integer cropCategoryID);
+
+    List<CropSubCategory> findByCropGroup_CropGroupID(Integer cropGroupID);
 }
