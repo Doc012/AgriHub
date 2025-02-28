@@ -1,0 +1,66 @@
+export const provinces = [
+    {
+        province: "Eastern Cape",
+        climate: "Subtropical to Semi-Arid",
+        crops: ["Maize", "Citrus", "Pineapples"],
+        livestock: ["Goats", "Sheep", "Cattle"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Eastern_Cape_in_South_Africa.svg/375px-Eastern_Cape_in_South_Africa.svg.png",
+    },
+    {
+      province: "Gauteng",
+      climate: "Temperate",
+      crops: ["Maize", "Wheat", "Sunflowers"],
+      livestock: ["Cattle", "Poultry"],
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Gauteng_in_South_Africa.svg/375px-Gauteng_in_South_Africa.svg.png",
+    },
+    {
+      province: "KwaZulu-Natal",
+      climate: "Humid Subtropical",
+      crops: ["Sugarcane", "Bananas", "Avocados"],
+      livestock: ["Dairy Cows", "Goats"],
+      image: "https://upload.wikimedia.org/wikipedia/commons/f/f5/KwaZulu-Natal_in_South_Africa.svg",
+    },
+    {
+      province: "Western Cape",
+      climate: "Mediterranean",
+      crops: ["Grapes", "Citrus", "Olives"],
+      livestock: ["Sheep", "Cattle"],
+      image: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Western_Cape_in_South_Africa.svg",
+    },
+    {
+      province: "Northern Cape",
+      climate: "Arid to Semi-Arid",
+      crops: ["Grapes", "Dates", "Cotton"],
+      livestock: ["Sheep", "Goats"],
+      image: "https://upload.wikimedia.org/wikipedia/commons/2/26/Northern_Cape_in_South_Africa.svg",
+    },
+    {
+      province: "Free State",
+      climate: "Temperate to Semi-Arid",
+      crops: ["Maize", "Soybeans", "Wheat"],
+      livestock: ["Cattle", "Sheep"],
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Free_State_in_South_Africa.svg/375px-Free_State_in_South_Africa.svg.png",
+    },
+    {
+      province: "North West",
+      climate: "Semi-Arid",
+      crops: ["Sunflowers", "Maize", "Groundnuts"],
+      livestock: ["Cattle", "Game Farming"],
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/North_West_in_South_Africa.svg/375px-North_West_in_South_Africa.svg.png",
+    },
+    {
+      province: "Limpopo",
+      climate: "Tropical to Semi-Arid",
+      crops: ["Citrus", "Tomatoes", "Macadamia Nuts"],
+      livestock: ["Goats", "Cattle"],
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Limpopo_in_South_Africa.svg/375px-Limpopo_in_South_Africa.svg.png",
+    },
+    {
+      province: "Mpumalanga",
+      climate: "Subtropical",
+      crops: ["Sugarcane", "Bananas", "Avocados"],
+      livestock: ["Dairy Cows", "Cattle"],
+      image: "https://upload.wikimedia.org/wikipedia/commons/c/c4/Mpumalanga_in_South_Africa.svg",
+    },
+  ];
+  
