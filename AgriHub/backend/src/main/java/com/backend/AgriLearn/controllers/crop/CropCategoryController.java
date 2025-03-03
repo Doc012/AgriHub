@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/crop-categories")
+@RequestMapping("/api/v1/user/crop-categories")
 public class CropCategoryController {
 
     @Autowired

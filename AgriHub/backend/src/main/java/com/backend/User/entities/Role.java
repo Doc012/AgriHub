@@ -5,8 +5,9 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
+
 @Entity
-@Table(name = "roles")
+@Table(name = "Roles") // Match the table name in the database
 public class Role {
 
     @Id

@@ -14,9 +14,28 @@ CREATE TABLE Users (
     Email VARCHAR(100) UNIQUE NOT NULL,
     pic_url VARCHAR(255),
     RoleID INT NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    enabled BOOLEAN NOT NULL,
+    verification_token VARCHAR(255),
+    verification_token_expiry DATETIME,
     CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     UpdatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (RoleID) REFERENCES Roles(RoleID)
+);
+
+CREATE TABLE blacklisted_tokens (
+    token VARCHAR(255) PRIMARY KEY,
+    blacklisted_at DATETIME NOT NULL,
+    expires_at DATETIME NOT NULL
+);
+
+
+CREATE TABLE password_reset_token (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    token VARCHAR(255) NOT NULL,
+    user_id INT NOT NULL,
+    expiry_date DATETIME NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Provinces (

@@ -26,11 +26,36 @@ public class User {
     @Column(nullable = false, unique = true, name = "Email")
     private String email;
 
+
+
+    ///////////////////////////////////////////////////////////////
+    ///
+    /// ALTER TABLE users
+    /// ADD COLUMN password VARCHAR(255) NOT NULL,
+    /// ADD COLUMN enabled BOOLEAN NOT NULL,
+    /// ADD COLUMN verification_token VARCHAR(255),
+    /// ADD COLUMN verification_token_expiry DATETIME;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(nullable = false, name = "enabled")
+    private boolean enabled;
+
+    @Column(name = "verification_token")
+    private String verificationToken;
+
+    @Column(name = "verification_token_expiry")
+    private LocalDateTime verificationTokenExpiry;
+    ///////////////////////////////////////////////////////////////
+
+
+
     @Column(name = "Pic_url")
     private String picUrl;
 
     @ManyToOne
-    @JoinColumn(name = "RoleID", nullable = false)
+    @JoinColumn(name = "RoleID")
     private Role roleType;
 
     @Column(name = "CreatedAt", updatable = false)
@@ -53,12 +78,16 @@ public class User {
     public User() {
     }
 
-    public User(int userID, String name, String surname, String phoneNumber, String email, String picUrl, Role roleType, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public User(int userID, String name, String surname, String phoneNumber, String email, String password, boolean enabled, String verificationToken, LocalDateTime verificationTokenExpiry, String picUrl, Role roleType, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.userID = userID;
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.password = password;
+        this.enabled = enabled;
+        this.verificationToken = verificationToken;
+        this.verificationTokenExpiry = verificationTokenExpiry;
         this.picUrl = picUrl;
         this.roleType = roleType;
         this.createdAt = createdAt;
@@ -103,6 +132,38 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getVerificationToken() {
+        return verificationToken;
+    }
+
+    public void setVerificationToken(String verificationToken) {
+        this.verificationToken = verificationToken;
+    }
+
+    public LocalDateTime getVerificationTokenExpiry() {
+        return verificationTokenExpiry;
+    }
+
+    public void setVerificationTokenExpiry(LocalDateTime verificationTokenExpiry) {
+        this.verificationTokenExpiry = verificationTokenExpiry;
     }
 
     public String getPicUrl() {
