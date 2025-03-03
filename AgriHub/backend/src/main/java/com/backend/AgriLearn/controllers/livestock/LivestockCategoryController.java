@@ -30,10 +30,10 @@ public class LivestockCategoryController {
         return ResponseEntity.ok(livestockCategories);
     }
 
-    // Get livestock categories by location ID
-    @GetMapping("/location/{locationID}")
-    public ResponseEntity<List<LivestockCategory>> getLivestockCategoriesByLocation(@PathVariable("locationID") int locationID) {
-        List<LivestockCategory> livestockCategories = livestockCategoryService.getLivestockCategoriesByLocation(locationID);
+    // Get livestock categories by district ID
+    @GetMapping("/district/{districtID}")
+    public ResponseEntity<List<LivestockCategory>> getLivestockCategoriesByDistrict(@PathVariable("districtID") int districtID) {
+        List<LivestockCategory> livestockCategories = livestockCategoryService.getLivestockCategoriesByDistrict(districtID);
         return ResponseEntity.ok(livestockCategories);
     }
 

@@ -1,9 +1,10 @@
 package com.backend.AgriLearn.services.livestock;
 
 import com.backend.AgriLearn.dtos.livestock.LivestockCategoryDTO;
-import com.backend.AgriLearn.entities.Location;
+import com.backend.AgriLearn.entities.District;
 import com.backend.AgriLearn.entities.livestock.LivestockCategory;
-import com.backend.AgriLearn.repositories.LocationRepository;
+import com.backend.AgriLearn.repositories.DistrictRepository;
+
 import com.backend.AgriLearn.repositories.livestock.LivestockCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,15 +19,15 @@ public class LivestockCategoryService {
     private LivestockCategoryRepository livestockCategoryRepository;
 
     @Autowired
-    private LocationRepository locationRepository;
+    private DistrictRepository districtRepository;
 
     // Create a new livestock category
     public LivestockCategory createLivestockCategory(LivestockCategoryDTO livestockCategoryDTO) {
-        Optional<Location> location = locationRepository.findById(livestockCategoryDTO.getLocationID());
-        if (location.isPresent()) {
+        Optional<District> district = districtRepository.findById(livestockCategoryDTO.getDistrictID());
+        if (district.isPresent()) {
             LivestockCategory livestockCategory = new LivestockCategory();
 
-            livestockCategory.setLocation(location.get());
+            livestockCategory.setDistrict(district.get());
             livestockCategory.setTitle(livestockCategoryDTO.getTitle());
             livestockCategory.setDescription(livestockCategoryDTO.getDescription());
             livestockCategory.setPicUrl(livestockCategoryDTO.getPicUrl());
@@ -35,7 +36,7 @@ public class LivestockCategoryService {
 
             return livestockCategoryRepository.save(livestockCategory);
         } else {
-            throw new RuntimeException("Location not found with ID " + livestockCategoryDTO.getLocationID());
+            throw new RuntimeException("District not found with ID " + livestockCategoryDTO.getDistrictID());
         }
     }
 
@@ -44,9 +45,9 @@ public class LivestockCategoryService {
         return livestockCategoryRepository.findAll();
     }
 
-    // Retrieve livestock category by location
-    public List<LivestockCategory> getLivestockCategoriesByLocation(int locationID) {
-        return livestockCategoryRepository.findByLocation_LocationID(locationID);
+    // Retrieve livestock category by district
+    public List<LivestockCategory> getLivestockCategoriesByDistrict(int districtID) {
+        return livestockCategoryRepository.findByDistrict_DistrictID(districtID);
     }
 
     // Retrieve a livestock category by ID
@@ -64,7 +65,7 @@ public class LivestockCategoryService {
             livestockCategory.setDescription(livestockCategoryDTO.getDescription());
             livestockCategory.setPicUrl(livestockCategoryDTO.getPicUrl());
             livestockCategory.setHasSubCategories(livestockCategoryDTO.isHasSubCategories());
-            livestockCategory.setLocation(locationRepository.findById(livestockCategoryDTO.getLocationID()).get());
+            livestockCategory.setDistrict(districtRepository.findById(livestockCategoryDTO.getDistrictID()).get());
 
             return livestockCategoryRepository.save(livestockCategory);
         } else {

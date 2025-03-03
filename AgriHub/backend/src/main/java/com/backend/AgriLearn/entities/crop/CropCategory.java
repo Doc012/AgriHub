@@ -1,6 +1,6 @@
 package com.backend.AgriLearn.entities.crop;
 
-import com.backend.AgriLearn.entities.Location;
+import com.backend.AgriLearn.entities.District;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,8 +13,8 @@ public class CropCategory {
     private int cropCategoryID;
 
     @ManyToOne
-    @JoinColumn(name = "locationID", nullable = false)
-    private Location location;
+    @JoinColumn(name = "DistrictID", nullable = false)
+    private District district;
 
     @Column(nullable = false, name = "Title")
     private String title;
@@ -31,9 +31,9 @@ public class CropCategory {
     public CropCategory() {
     }
 
-    public CropCategory(int cropCategoryID, Location location, String title, String description, String picUrl, Boolean hasSubCategories) {
+    public CropCategory(int cropCategoryID, District district, String title, String description, String picUrl, Boolean hasSubCategories) {
         this.cropCategoryID = cropCategoryID;
-        this.location = location;
+        this.district = district;
         this.title = title;
         this.description = description;
         this.picUrl = picUrl;
@@ -48,12 +48,12 @@ public class CropCategory {
         this.cropCategoryID = cropCategoryID;
     }
 
-    public Location getLocation() {
-        return location;
+    public District getDistrict() {
+        return district;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setDistrict(District district) {
+        this.district = district;
     }
 
     public String getTitle() {

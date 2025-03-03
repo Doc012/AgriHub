@@ -2,18 +2,18 @@ package com.backend.AgriLearn.dtos.crop;
 
 public class CropCategoryDTO {
 
-    private int locationID;
+    private int districtID;
     private String title;
     private String description;
     private String picUrl;
     private boolean hasSubCategories;
 
-    public int getLocationID() {
-        return locationID;
+    public int getDistrictID() {
+        return districtID;
     }
 
-    public void setLocationID(int locationID) {
-        this.locationID = locationID;
+    public void setDistrictID(int districtID) {
+        this.districtID = districtID;
     }
 
     public String getTitle() {

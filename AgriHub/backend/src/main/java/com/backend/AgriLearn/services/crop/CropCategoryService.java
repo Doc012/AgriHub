@@ -1,9 +1,10 @@
 package com.backend.AgriLearn.services.crop;
 
 import com.backend.AgriLearn.dtos.crop.CropCategoryDTO;
-import com.backend.AgriLearn.entities.Location;
+import com.backend.AgriLearn.entities.District;
+
 import com.backend.AgriLearn.entities.crop.CropCategory;
-import com.backend.AgriLearn.repositories.LocationRepository;
+import com.backend.AgriLearn.repositories.DistrictRepository;
 import com.backend.AgriLearn.repositories.crop.CropCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,15 +19,15 @@ public class CropCategoryService {
     private CropCategoryRepository cropCategoryRepository;
 
     @Autowired
-    private LocationRepository locationRepository;
+    private DistrictRepository districtRepository;
 
     // Create a new crop category
     public CropCategory createCropCategory(CropCategoryDTO cropCategoryDTO) {
-        Optional<Location> location = locationRepository.findById(cropCategoryDTO.getLocationID());
-        if (location.isPresent()) {
+        Optional<District> district = districtRepository.findById(cropCategoryDTO.getDistrictID());
+        if (district.isPresent()) {
             CropCategory cropCategory = new CropCategory();
 
-            cropCategory.setLocation(location.get());
+            cropCategory.setDistrict(district.get());
             cropCategory.setTitle(cropCategoryDTO.getTitle());
             cropCategory.setDescription(cropCategoryDTO.getDescription());
             cropCategory.setPicUrl(cropCategoryDTO.getPicUrl());
@@ -34,7 +35,7 @@ public class CropCategoryService {
 
             return cropCategoryRepository.save(cropCategory);
         } else {
-            throw new RuntimeException("Location not found with ID " + cropCategoryDTO.getLocationID());
+            throw new RuntimeException("District not found with ID " + cropCategoryDTO.getDistrictID());
         }
     }
 
@@ -43,9 +44,9 @@ public class CropCategoryService {
         return cropCategoryRepository.findAll();
     }
 
-    // Retrieve crop category by location
-    public List<CropCategory> getCropCategoriesByLocation(int locationID) {
-        return cropCategoryRepository.findByLocation_LocationID(locationID);
+    // Retrieve crop category by district
+    public List<CropCategory> getCropCategoriesByDistrict(int districtID) {
+        return cropCategoryRepository.findByDistrict_DistrictID(districtID);
     }
 
     // Retrieve a crop category by ID
@@ -62,7 +63,7 @@ public class CropCategoryService {
             cropCategory.setDescription(cropCategoryDTO.getDescription());
             cropCategory.setPicUrl(cropCategoryDTO.getPicUrl());
             cropCategory.setHasSubCategories(cropCategoryDTO.isHasSubCategories());
-            cropCategory.setLocation(locationRepository.findById(cropCategoryDTO.getLocationID()).get());
+            cropCategory.setDistrict(districtRepository.findById(cropCategoryDTO.getDistrictID()).get());
             return cropCategoryRepository.save(cropCategory);
         } else {
             throw new RuntimeException("Crop category not found with ID " + cropCategoryID);

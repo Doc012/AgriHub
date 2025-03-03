@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface CropCategoryRepository extends JpaRepository<CropCategory, Integer> {
-    List<CropCategory> findByLocation_LocationID(Integer locationID);
+    List<CropCategory> findByDistrict_DistrictID(Integer districtID);
 }

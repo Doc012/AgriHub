@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface LivestockCategoryRepository extends JpaRepository<LivestockCategory, Integer> {
-    List<LivestockCategory> findByLocation_LocationID(int locationID);
+    List<LivestockCategory> findByDistrict_DistrictID(int districtID);
 }

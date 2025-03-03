@@ -19,21 +19,32 @@ CREATE TABLE Users (
     FOREIGN KEY (RoleID) REFERENCES Roles(RoleID)
 );
 
-CREATE TABLE Locations (
-    LocationID INT AUTO_INCREMENT PRIMARY KEY,
-    Province VARCHAR(100) NOT NULL,
-    District VARCHAR(100) NOT NULL,
-    Pic_url VARCHAR(255)
+CREATE TABLE Provinces (
+    ProvinceID INT AUTO_INCREMENT PRIMARY KEY,
+    Province ENUM('EASTERN_CAPE', 'FREE_STATE', 'GAUTENG', 'KWAZULU_NATAL', 'LIMPOPO',
+                  'MPUMALANGA', 'NORTH_WEST', 'NORTHERN_CAPE', 'WESTERN_CAPE') NOT NULL,
+    Description TEXT,
+    provincePic_url VARCHAR(255)
 );
+
+CREATE TABLE Districts (
+    DistrictID INT AUTO_INCREMENT PRIMARY KEY,
+    ProvinceID INT,
+    District VARCHAR(100) NOT NULL,
+    Description TEXT,
+    districtPic_url VARCHAR(255),
+    FOREIGN KEY (ProvinceID) REFERENCES Provinces(ProvinceID) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 
 CREATE TABLE CropCategories (
     CropCategoryID INT AUTO_INCREMENT PRIMARY KEY,
-    LocationID INT NOT NULL,
+    DistrictID INT NOT NULL,
     Title VARCHAR(100) NOT NULL,
     Description TEXT,
     Pic_url VARCHAR(255),
     HasSubCategories BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (LocationID) REFERENCES Locations(LocationID)
+    FOREIGN KEY (DistrictID) REFERENCES Districts(DistrictID)
 );
 
 CREATE TABLE CropGroups (
@@ -98,12 +109,12 @@ CREATE TABLE CropSubCategoryObjectiveContents (
 
 CREATE TABLE LivestockCategories (
     LivestockCategoryID INT AUTO_INCREMENT PRIMARY KEY,
-    LocationID INT NOT NULL,
+    DistrictID INT NOT NULL,
     Title VARCHAR(100) NOT NULL,
     Description TEXT,
     Pic_url VARCHAR(255),
     HasSubCategories BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (LocationID) REFERENCES Locations(LocationID)
+    FOREIGN KEY (DistrictID) REFERENCES Districts(DistrictID)
 );
 
 CREATE TABLE LivestockGroups (

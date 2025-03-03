@@ -30,10 +30,10 @@ public class CropCategoryController {
         return ResponseEntity.ok(cropCategories);
     }
 
-    // Get crop categories by location ID
-    @GetMapping("/location/{locationID}")
-    public ResponseEntity<List<CropCategory>> getCropCategoriesByLocation(@PathVariable("locationID") int locationID) {
-        List<CropCategory> cropCategories = cropCategoryService.getCropCategoriesByLocation(locationID);
+    // Get crop categories by district ID
+    @GetMapping("/district/{districtID}")
+    public ResponseEntity<List<CropCategory>> getCropCategoriesByDistrict(@PathVariable("districtID") int districtID) {
+        List<CropCategory> cropCategories = cropCategoryService.getCropCategoriesByDistrict(districtID);
         return ResponseEntity.ok(cropCategories);
     }
 

@@ -1,6 +1,6 @@
 package com.backend.AgriLearn.entities.livestock;
 
-import com.backend.AgriLearn.entities.Location;
+import com.backend.AgriLearn.entities.District;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,8 +13,8 @@ public class LivestockCategory {
     private int livestockCategoryID;
 
     @ManyToOne
-    @JoinColumn(name = "LocationID", nullable = false)
-    private Location location;
+    @JoinColumn(name = "DistrictID", nullable = false)
+    private District district;
 
     @Column(nullable = false, name = "Title")
     private String title;
@@ -31,9 +31,9 @@ public class LivestockCategory {
     public LivestockCategory() {
     }
 
-    public LivestockCategory(int livestockCategoryID, Location location, String title, String description, String picUrl, Boolean hasSubCategories) {
+    public LivestockCategory(int livestockCategoryID, District district, String title, String description, String picUrl, Boolean hasSubCategories) {
         this.livestockCategoryID = livestockCategoryID;
-        this.location = location;
+        this.district = district;
         this.title = title;
         this.description = description;
         this.picUrl = picUrl;
@@ -48,12 +48,12 @@ public class LivestockCategory {
         this.livestockCategoryID = livestockCategoryID;
     }
 
-    public Location getLocation() {
-        return location;
+    public District getDistrict() {
+        return district;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setDistrict(District district) {
+        this.district = district;
     }
 
     public String getTitle() {
