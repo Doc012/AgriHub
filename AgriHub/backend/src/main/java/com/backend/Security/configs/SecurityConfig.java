@@ -38,12 +38,22 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/api/auth/**").permitAll();
+                    auth.requestMatchers(
+                            "/api/auth/**",
+                            "/v3/api-docs/**",  // OpenAPI JSON
+                            "/swagger-ui/**",   // Swagger UI
+                            "/swagger-ui.html",
+                            "/swagger-ui/**",
+                            "favicon.ico"
+                    ).permitAll();
                     auth.requestMatchers("/api/v1/admin/**").hasAuthority("ROLE_ADMIN");
                     auth.requestMatchers("/api/v1/user/**").hasAuthority("ROLE_USER");
+                    auth.requestMatchers("/error").permitAll();  // Allow access to the error endpoint
+
 
                     auth.anyRequest().authenticated();
                 })
+
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )

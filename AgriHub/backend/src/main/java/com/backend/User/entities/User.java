@@ -35,9 +35,11 @@ public class User {
     /// ADD COLUMN enabled BOOLEAN NOT NULL,
     /// ADD COLUMN verification_token VARCHAR(255),
     /// ADD COLUMN verification_token_expiry DATETIME;
+    ///
 
     @Column(name = "password")
     private String password;
+
 
     @Column(nullable = false, name = "enabled")
     private boolean enabled;
@@ -47,6 +49,10 @@ public class User {
 
     @Column(name = "verification_token_expiry")
     private LocalDateTime verificationTokenExpiry;
+
+    // New field for verification attempts
+    @Column(name = "verification_attempts", columnDefinition = "int default 0")
+    private int verificationAttempts = 0;
     ///////////////////////////////////////////////////////////////
 
 
@@ -78,7 +84,7 @@ public class User {
     public User() {
     }
 
-    public User(int userID, String name, String surname, String phoneNumber, String email, String password, boolean enabled, String verificationToken, LocalDateTime verificationTokenExpiry, String picUrl, Role roleType, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public User(int userID, String name, String surname, String phoneNumber, String email, String password, boolean enabled, String verificationToken, LocalDateTime verificationTokenExpiry, int verificationAttempts, String picUrl, Role roleType, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.userID = userID;
         this.name = name;
         this.surname = surname;
@@ -88,6 +94,7 @@ public class User {
         this.enabled = enabled;
         this.verificationToken = verificationToken;
         this.verificationTokenExpiry = verificationTokenExpiry;
+        this.verificationAttempts = verificationAttempts;
         this.picUrl = picUrl;
         this.roleType = roleType;
         this.createdAt = createdAt;
@@ -164,6 +171,14 @@ public class User {
 
     public void setVerificationTokenExpiry(LocalDateTime verificationTokenExpiry) {
         this.verificationTokenExpiry = verificationTokenExpiry;
+    }
+
+    public int getVerificationAttempts() {
+        return verificationAttempts;
+    }
+
+    public void setVerificationAttempts(int verificationAttempts) {
+        this.verificationAttempts = verificationAttempts;
     }
 
     public String getPicUrl() {

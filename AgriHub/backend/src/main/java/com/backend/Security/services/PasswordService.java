@@ -12,6 +12,7 @@ import java.util.UUID;
 
 @Service
 public class PasswordService {
+
     private final UserRepository userRepository;
     private final PasswordResetTokenRepository tokenRepository;
     private final PasswordEncoder passwordEncoder;
@@ -63,6 +64,11 @@ public class PasswordService {
     public void changePassword(User user, String currentPassword, String newPassword) {
         if (!passwordEncoder.matches(currentPassword, user.getPassword())) {
             throw new RuntimeException("Current password is incorrect");
+        }
+
+        // Validate new password length
+        if (newPassword == null || newPassword.length() < 8) {
+            throw new IllegalArgumentException("Password must be at least 8 characters long");
         }
 
         user.setPassword(passwordEncoder.encode(newPassword));

@@ -23,6 +23,9 @@ CREATE TABLE Users (
     FOREIGN KEY (RoleID) REFERENCES Roles(RoleID)
 );
 
+ALTER TABLE users
+ADD COLUMN verification_attempts INT DEFAULT 0;
+
 CREATE TABLE blacklisted_tokens (
     token VARCHAR(255) PRIMARY KEY,
     blacklisted_at DATETIME NOT NULL,
